@@ -1,5 +1,6 @@
 'use client'
-import Link from 'next/link'
+import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation'
 import { Home, Send, ArrowLeftRight, Users, Shield, Settings, LogOut} from 'lucide-react'
 import '../styles/Sidebar.css'
@@ -9,9 +10,9 @@ export default function Sidebar() {
 
     return (
         <aside className='sidebar'>
-            <div className='logo'>
-                <img src="../public/logo.jpeg" alt="Cashflopw" className='logo-img'/>
-            </div>
+            <div className="sidebar-brand">
+                    <Image src="/logo-cashflow.jpeg" alt="Logo" width={150} height={55} className="brand-logo-full" />
+                </div>
 
             <nav className='nav'>
                 <p className='nav-title'>MAIN NAVIGATION</p>
