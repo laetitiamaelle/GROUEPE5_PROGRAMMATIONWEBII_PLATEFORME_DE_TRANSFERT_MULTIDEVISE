@@ -1,0 +1,402 @@
+
+.inscription-page {
+  --gold: #F5A623;
+  --gold-hover: #FFBE4D;
+  --bg-deep: #0A0A0B;
+  --bg-header: #111114;
+  --bg-input: #222228;
+  --bg-input-focus: #28282F;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-focus: rgba(245, 166, 35, 0.45);
+  --text-primary: #E5E5E5;
+  --text-secondary: #8A8A9A;
+  --text-muted: #52525F;
+}
+
+/* ── PAGE ── */
+.inscription-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: Arial, sans-serif;
+}
+
+/* ── HEADER ── */
+.inscription-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-header);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.inscription-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.inscription-logo-img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.inscription-logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.3px;
+}
+
+.inscription-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inscription-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.inscription-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.inscription-signin-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.inscription-signin-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(245, 166, 35, 0.06);
+}
+
+/* ── MAIN — 2 colonnes ── */
+.inscription-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 40px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── COLONNE GAUCHE ── */
+.inscription-left {
+  animation: inscriptionFadeRight 0.5s ease both;
+}
+
+.inscription-hero {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.inscription-accent {
+  color: var(--gold);
+}
+
+.inscription-hero-sub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 34px;
+}
+
+/* Features */
+.inscription-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inscription-feature-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.inscription-feature-icon {
+  font-size: 20px;
+  min-width: 36px;
+  height: 36px;
+  background: rgba(245, 166, 35, 0.09);
+  border: 1px solid rgba(245, 166, 35, 0.18);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.inscription-feature-item strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.inscription-feature-item p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Note */
+.inscription-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 15px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── COLONNE DROITE ── */
+.inscription-right {
+  animation: inscriptionFadeLeft 0.5s ease 0.1s both;
+}
+
+.inscription-form-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.inscription-form-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 26px;
+  line-height: 1.5;
+}
+
+/* ── FORMULAIRE ── */
+.inscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inscription-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.inscription-field-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.inscription-field-group input,
+.inscription-field-group select {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: Arial, sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.inscription-field-group input::placeholder {
+  color: var(--text-muted);
+}
+.inscription-field-group input:focus,
+.inscription-field-group select:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-input-focus);
+}
+
+/* Select flèche custom */
+.inscription-field-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5A623' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-color: var(--bg-input);
+  padding-right: 40px;
+  cursor: pointer;
+}
+.inscription-field-group select option {
+  background: #222228;
+  color: var(--text-primary);
+}
+
+/* Ligne double password + confirm */
+.inscription-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Input + œil */
+.inscription-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.inscription-input-wrap input {
+  padding-right: 40px;
+}
+.inscription-eye-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px;
+  color: var(--text-muted);
+}
+
+/* Ligne label devise + badge */
+.inscription-devise-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inscription-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: var(--gold);
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.22);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.inscription-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Bouton créer */
+.inscription-submit-btn {
+  background: var(--gold);
+  color: #0A0A0B;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 4px;
+  font-family: Arial, sans-serif;
+}
+.inscription-submit-btn:hover {
+  background: var(--gold-hover);
+  transform: translateY(-1px);
+}
+.inscription-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Lien se connecter */
+.inscription-switch-link {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.inscription-switch-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+.inscription-switch-link a:hover {
+  color: var(--gold-hover);
+}
+
+/* ── FOOTER ── */
+.inscription-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-header);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.inscription-footer-links {
+  display: flex;
+  gap: 20px;
+}
+.inscription-footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.inscription-footer-links a:hover {
+  color: var(--text-secondary);
+}
+
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .inscription-main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 32px 20px;
+  }
+  .inscription-hero { font-size: 26px; }
+}
+@media (max-width: 520px) {
+  .inscription-header { padding: 0 16px; }
+  .inscription-field-row { grid-template-columns: 1fr; }
+  .inscription-footer { flex-direction: column; gap: 10px; text-align: center; }
+}
