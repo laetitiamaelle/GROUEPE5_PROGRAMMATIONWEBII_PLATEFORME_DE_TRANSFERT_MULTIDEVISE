@@ -14,6 +14,13 @@
     padding: 0 32px;
 }
 
+/* Make topbar sit above content to avoid visual overlap */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
 .search-box {
     position: relative;
     display: flex;
@@ -34,6 +41,10 @@
     padding: 8px 16px 8px 40px;
     color: white;
     font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .search { width: 220px; }
 }
 
 .topbar-right {

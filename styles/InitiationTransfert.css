@@ -1,0 +1,408 @@
+/* Réutilise .main, .topbar, .content, .footer de HistoriqueTransactions.css */
+/* Classes spécifiques au transfert */
+
+.tf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.tf-header h1 {
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.tf-header p {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.tf-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.tf-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6B7280;
+  padding: 6px 12px;
+}
+
+.tf-step span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #1A1A1D;
+  border: 1px solid #1F1F23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tf-step.active {
+  color: #FACC15;
+}
+
+.tf-step.active span {
+  background: #FACC15;
+  color: black;
+  border-color: #FACC15;
+}
+
+.tf-step-line {
+  width: 32px;
+  height: 1px;
+  background: #1F1F23;
+}
+
+.tf-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+.tf-card,
+.tf-summary-card {
+  background: #111113;
+  border: 1px solid #1F1F23;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.tf-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #E5E5E5;
+}
+
+.tf-field {
+  margin-bottom: 20px;
+}
+
+.tf-field label {
+  display: block;
+  font-size: 13px;
+  color: #9CA3AF;
+  margin-bottom: 8px;
+}
+
+.tf-optional {
+  color: #6B7280;
+  font-size: 11px;
+}
+
+.tf-input {
+  width: 100%;
+  background: #0A0A0B;
+  border: 1px solid #1F1F23;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #E5E5E5;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.tf-input:focus {
+  outline: none;
+  border-color: #FACC15;
+}
+
+.tf-readonly {
+  color: #FACC15;
+  font-weight: 600;
+}
+
+.tf-amount {
+  flex: 1;
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+.tf-amount-row {
+  display: flex;
+}
+
+.tf-select {
+  background: #1A1A1D;
+  border: 1px solid #1F1F23;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  color: #E5E5E5;
+  font-size: 14px;
+  font-family: inherit;
+  min-width: 110px;
+}
+
+.tf-select:focus {
+  outline: none;
+}
+
+.tf-swap-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -8px 0 12px;
+}
+
+.tf-rate-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.tf-swap-btn {
+  background: #1A1A1D;
+  border: 1px solid #1F1F23;
+  color: #9CA3AF;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.tf-swap-btn:hover {
+  background: #FACC15;
+  color: black;
+  border-color: #FACC15;
+}
+
+/* Contact picker */
+.tf-contact-wrapper {
+  position: relative;
+}
+
+.tf-contact-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tf-contact-icon {
+  position: absolute;
+  left: 12px;
+  color: #6B7280;
+}
+
+.tf-contact-input {
+  width: 100%;
+  background: #0A0A0B;
+  border: 1px solid #1F1F23;
+  border-radius: 8px;
+  padding: 10px 14px 10px 36px;
+  color: #E5E5E5;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.tf-contact-input:focus {
+  outline: none;
+  border-color: #FACC15;
+}
+
+.tf-contact-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #111113;
+  border: 1px solid #1F1F23;
+  border-radius: 8px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.tf-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: none;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid #1F1F23;
+}
+
+.tf-contact-item:last-child {
+  border-bottom: none;
+}
+
+.tf-contact-item:hover {
+  background: #1A1A1D;
+}
+
+.tf-contact-empty {
+  padding: 16px;
+  color: #6B7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tf-contact-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FACC15;
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-contact-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tf-contact-email {
+  display: block;
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 2px;
+}
+
+.tf-contact-selected {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(250, 204, 21, 0.05);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.tf-contact-clear {
+  margin-left: auto;
+  background: none;
+  color: #6B7280;
+  font-size: 16px;
+}
+
+.tf-contact-clear:hover {
+  color: #EF4444;
+}
+
+.tf-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.tf-submit-btn {
+  width: 100%;
+  background: #FACC15;
+  color: black;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.tf-submit-btn:hover {
+  background: #EAB308;
+}
+
+/* Summary card */
+.tf-summary-amount {
+  background: #0A0A0B;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tf-summary-label {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.tf-summary-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #E5E5E5;
+}
+
+.tf-summary-breakdown {
+  background: #0A0A0B;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.tf-summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #9CA3AF;
+  margin-bottom: 10px;
+}
+
+.tf-summary-line:last-child {
+  margin-bottom: 0;
+}
+
+.tf-summary-divider {
+  height: 1px;
+  background: #1F1F23;
+  margin: 12px 0;
+}
+
+.tf-summary-total {
+  color: #E5E5E5;
+  font-weight: 500;
+}
+
+.tf-summary-converted {
+  color: #FACC15;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.tf-summary-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6B7280;
+  margin-bottom: 20px;
+}
+
+.tf-summary-beneficiary {
+  border-top: 1px solid #1F1F23;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-summary-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
