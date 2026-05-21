@@ -39,11 +39,9 @@ export default function Sidebar() {
                     <User size={18} /> Mon Profil
                 </Link>
                 <div className='sidebar-logout'>
-                    <Link href="/connexion">
                     <button className='nav-item logout-btn'>
                         <LogOut size={18} /> Log Out
                     </button>
-                    </Link>
                 </div>
             </div>
         </aside>

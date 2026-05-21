@@ -3,6 +3,7 @@ import React from 'react';
 const users = [
   { id: 1, name: "Jean Dupont", email: "jean.dupont@email.com", currency: "EUR", balance: "2 540,50 €", status: "Actif" },
   { id: 2, name: "Marie Ngo", email: "marie.ngo@outlook.fr", currency: "XAF", balance: "1 250 000 FCFA", status: "Actif" },
+  { id: 3, name: "Alice Walker", email: "a.walker@finance.com", currency: "USD", balance: "8 400,00 $US", status: "Vérification" },
 ];
 
 export default function UserTable() {

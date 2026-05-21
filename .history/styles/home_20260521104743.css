@@ -1,0 +1,200 @@
+/* Home.module.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #0b0f19;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* Header & Navigation */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #1f293d;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navLink {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navLink:hover {
+    color: #00f2fe;
+}
+
+.btnConnect {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #0b0f19;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btnConnect:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Hero Section */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+    gap: 40px;
+}
+
+.heroLeft h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroLeft p {
+    color: #94a3b8;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.ctaGroup {
+    display: flex;
+    gap: 15px;
+}
+
+.btnPrimary {
+    background-color: #ffffff;
+    color: #0b0f19;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btnSecondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #334155;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btnSecondary:hover {
+    background-color: #1e293b;
+}
+
+
+/* Hero Right: Crypto/FX Card Illustration */
+
+.heroRight {
+    display: flex;
+    justify-content: center;
+}
+
+.cardContainer {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Features Grid */
+
+.features {
+    max-width: 1200px;
+    margin: 100px auto p;
+    padding: 0 40px 60px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.featureCard {
+    background-color: #111827;
+    border: 1px solid #1f293d;
+    padding: 30px;
+    border-radius: 12px;
+    transition: border-color 0.3s;
+}
+
+.featureCard:hover {
+    border-color: #00f2fe;
+}
+
+.icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.featureCard h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.featureCard p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* Responsive design de base */
+
+@media (max-width: 968px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .ctaGroup {
+        justify-content: center;
+    }
+    .features {
+        grid-template-columns: 1fr;
+    }
+}

@@ -43,7 +43,6 @@ export default function Sidebar() {
                     <button className='nav-item logout-btn'>
                         <LogOut size={18} /> Log Out
                     </button>
-                    </Link>
                 </div>
             </div>
         </aside>

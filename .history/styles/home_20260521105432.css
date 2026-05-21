@@ -1,0 +1,109 @@
+/* Container principal */
+
+.container {
+    min-height: 100vh;
+    background-color: #0b0f19;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+
+/* Barre de navigation */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    border-bottom: 1px solid #1f293d;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00f2fe;
+}
+
+.navLinks a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.navLinks a:hover {
+    color: #00f2fe;
+}
+
+
+/* Section Présentation (Hero) */
+
+.hero {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #38ef7d;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.btnPrimary {
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    color: #0b0f19;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+/* Grille des services / fonctionnalités */
+
+.featuresGrid {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: #111827;
+    border: 1px solid #1f293d;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.cardIcon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

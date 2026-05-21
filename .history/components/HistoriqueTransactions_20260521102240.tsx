@@ -1,7 +1,8 @@
 'use client'
 import { Search, Clock, Bell, Download, Plus, Filter, ArrowUpRight, ArrowDownLeft, RefreshCw, Info } from 'lucide-react'
 import '../styles/HistoriqueTransactions.css'
-
+import Image from 'next/image'
+import maPhoto from '../public/logo-cashflow.jpeg'
 
 export default function HistoriqueTransactions() {
   const data = [
@@ -12,6 +13,7 @@ export default function HistoriqueTransactions() {
   return (
     <div className="main">
       <header className="topbar">
+        <Image src={maPhoto} alt="Description de la photo" placeholder="blur"/>
         <div className="search-box">
           <Search size={16} className="search-icon" />
           <input type="text" placeholder="Search transactions or contacts..." className="search" />

@@ -1,0 +1,109 @@
+/* Style global de l'accueil */
+
+.home-container {
+    min-height: 100vh;
+    background-color: #0b0f19;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+
+/* Barre de navigation */
+
+.home-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    border-bottom: 1px solid #1f293d;
+}
+
+.home-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00f2fe;
+}
+
+.home-nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.home-nav-links a:hover {
+    color: #00f2fe;
+}
+
+
+/* Section Présentation (Hero) */
+
+.home-hero {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.home-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.home-highlight {
+    color: #38ef7d;
+}
+
+.home-hero p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.home-btn-primary {
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    color: #0b0f19;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+/* Grille des services / fonctionnalités */
+
+.home-features-grid {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.home-card {
+    background-color: #111827;
+    border: 1px solid #1f293d;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.home-card-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.home-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.home-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

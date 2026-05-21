@@ -1,7 +1,8 @@
 'use client'
 import { Search, Clock, Bell, Download, Plus, Filter, ArrowUpRight, ArrowDownLeft, RefreshCw, Info } from 'lucide-react'
 import '../styles/HistoriqueTransactions.css'
-
+import Image from 'next/image'
+import maPhoto from '../public/logo-cashflow.jpeg'
 
 export default function HistoriqueTransactions() {
   const data = [
@@ -10,6 +11,7 @@ export default function HistoriqueTransactions() {
   ]
 
   return (
+    <Image src={maPhoto} alt="Description de la photo" placeholder="blur"/>
     <div className="main">
       <header className="topbar">
         <div className="search-box">
