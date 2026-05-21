@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation'
-import { Home, Send, ArrowLeftRight, Users, Shield, Settings, LogOut} from 'lucide-react'
+import { Home, Send, ArrowLeftRight, Users, Shield, Settings, LogOut, User } from 'lucide-react'
 import '../styles/Sidebar.css'
 
 export default function Sidebar() {
@@ -10,19 +10,17 @@ export default function Sidebar() {
 
     return (
         <aside className='sidebar'>
-            <div className="sidebar-brand">
-                    <Image src="/logo-cashflow.jpeg" alt="Logo" width={150} height={55} className="brand-logo-full" />
-                </div>
+
 
             <nav className='nav'>
                 <p className='nav-title'>MAIN NAVIGATION</p>
-                <Link href="#" className={`nav-item #{pathname === '/home' ? 'active' : ''}`}>
+                <Link href="/home" className={`nav-item ${pathname === '/home' ? 'active' : ''}`}>
                     <Home size={18} /> Home
                 </Link>
-                <Link href="/transfert" className="nav-item">
+                <Link href="/transfert" className={`nav-item ${pathname.startsWith('/transfert') ? 'active' : ''}`}>
                     <Send size={18} /> Transfer
                 </Link>
-                <Link href="/transactions" className={`nav-item #{pathname === '/transactions' ? 'active' : ''}`}>
+                <Link href="/transactions" className={`nav-item ${pathname === '/transactions' ? 'active' : ''}`}>
                     <ArrowLeftRight size={18} /> Transactions
                 </Link>
                 <Link href="#" className="nav-item">
@@ -30,18 +28,23 @@ export default function Sidebar() {
                 </Link>
 
                 <p className="nav-title">MANAGEMENT</p>
-                <Link href="/exchange-rates" className={`nav-item #{pathname === '/exchanges-rates' ? 'active' : ''}`}>
-                    <Shield size={18} /> Exchanges-rates
+                <Link href="/exchange-rates" className={`nav-item ${pathname === '/exchange-rates' ? 'active' : ''}`}>
+                    <Shield size={18} /> Exchange Rates
                 </Link>
-                <Link href="/admin" className="nav-item">
+                <Link href="/admin" className={`nav-item ${pathname === '/admin' ? 'active' : ''}`}>
                     <Settings size={18} /> Admin Panels
                 </Link>
             </nav>
 
-            <div className='logout'>
-                <button className='nav-item'>
-                    <LogOut size={18} />Log Out
-                </button>
+            <div className='sidebar-footer'>
+                <Link href="/profil" className={`nav-item ${pathname === '/profil' ? 'active' : ''}`}>
+                    <User size={18} /> Mon Profil
+                </Link>
+                <div className='sidebar-logout'>
+                    <button className='nav-item logout-btn'>
+                        <LogOut size={18} /> Log Out
+                    </button>
+                </div>
             </div>
         </aside>
     )

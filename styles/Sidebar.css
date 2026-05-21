@@ -55,3 +55,27 @@
     padding: 16px;
     border-top: 1px solid #1F1F23;
 }
+
+.sidebar-footer {
+    border-top: 1px solid #1F1F23;
+    padding: 8px 16px 16px;
+}
+
+.sidebar-logout {
+    margin-top: 4px;
+}
+
+.logout-btn {
+    color: #EF4444 !important;
+}
+
+.logout-btn:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #EF4444 !important;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FACC15;
+}
