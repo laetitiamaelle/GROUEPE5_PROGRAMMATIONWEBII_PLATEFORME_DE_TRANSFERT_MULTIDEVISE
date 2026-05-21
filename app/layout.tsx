@@ -1,3 +1,4 @@
+
 import "./globals.css";
 import ErrorLogger from '../components/ErrorLogger'
 
@@ -6,12 +7,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
+   return (
     <html lang="en">
       <body>
         <ErrorLogger />
         {children}
       </body>
     </html>
+    
   );
 }
