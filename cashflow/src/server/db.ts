@@ -12,6 +12,7 @@ export type DbStore = {
     password_hash: string;
     currency: string;
     balance_eur: number;
+    role: "user" | "admin";
     created_at: string;
   }>;
   sessions: Array<{ token: string; user_id: string; expires_at: string }>;
@@ -59,12 +60,12 @@ export function loadStore(): DbStore {
   ensureDataDir();
   if (!fs.existsSync(DB_PATH)) {
     fs.writeFileSync(DB_PATH, JSON.stringify(EMPTY_STORE, null, 2), "utf8");
-    if (process.env.NODE_ENV !== "production") {
-      console.log(`[cashflow] Base de données créée : ${DB_PATH}`);
-    }
   }
   const raw = fs.readFileSync(DB_PATH, "utf8");
-  cache = JSON.parse(raw) as DbStore;
+  const store = JSON.parse(raw) as DbStore;
+  // Migration : ajouter role si absent sur anciens comptes
+  store.users = store.users.map((u) => ({ role: "user" as const, ...u }));
+  cache = store;
   return cache;
 }
 
@@ -81,7 +82,6 @@ export function mutateStore(mutator: (store: DbStore) => void) {
   return store;
 }
 
-/** Réinitialise le cache (tests / rechargement fichier). */
 export function resetStoreCache() {
   cache = null;
 }

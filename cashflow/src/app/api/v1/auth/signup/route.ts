@@ -32,7 +32,7 @@ export async function POST(req: Request) {
   const token = createSession(user.id);
   const response = jsonOk({
     token,
-    user: { email: user.email, name: user.full_name },
+    user: { email: user.email, name: user.full_name, role: user.role },
   });
   response.cookies.set(sessionCookieOptions(token, true));
   return response;

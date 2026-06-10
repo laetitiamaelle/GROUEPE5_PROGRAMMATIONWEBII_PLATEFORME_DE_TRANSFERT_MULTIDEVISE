@@ -71,6 +71,7 @@ export function createUser(input: {
   email: string;
   password: string;
   currency: string;
+  role?: string;
 }): DbUser {
   const id = newId("usr");
   const now = new Date().toISOString();
@@ -81,6 +82,7 @@ export function createUser(input: {
     password_hash: hashPassword(input.password),
     currency: input.currency,
     balance_eur: 4250,
+    role: (input.role as "user" | "admin") ?? "user",
     created_at: now,
   };
   mutateStore((store) => {
@@ -92,6 +94,7 @@ export function createUser(input: {
     email: user.email,
     currency: user.currency,
     balance_eur: user.balance_eur,
+    role: user.role,
     created_at: user.created_at,
   };
 }
@@ -106,6 +109,7 @@ export function findUserByEmail(email: string): (DbUser & { password_hash: strin
     email: user.email,
     currency: user.currency,
     balance_eur: user.balance_eur,
+    role: user.role ?? "user",
     created_at: user.created_at,
     password_hash: user.password_hash,
   };

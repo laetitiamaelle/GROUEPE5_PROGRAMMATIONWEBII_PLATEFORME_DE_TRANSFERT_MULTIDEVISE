@@ -13,6 +13,7 @@ export type DbUser = {
   email: string;
   currency: string;
   balance_eur: number;
+  role: "user" | "admin";
   created_at: string;
 };
 
@@ -66,6 +67,7 @@ export function getUserBySessionToken(token: string): DbUser | null {
     email: user.email,
     currency: user.currency,
     balance_eur: user.balance_eur,
+    role: user.role ?? "user",
     created_at: user.created_at,
   };
 }
