@@ -1,0 +1,20 @@
+.img {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.fallback {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0f1115;
+  background: linear-gradient(135deg, #facc15, #eab308);
+  user-select: none;
+}
+
+.ring {
+  box-shadow: 0 0 0 2px rgba(15, 17, 21, 0.9), 0 0 0 4px rgba(250, 204, 21, 0.35);
+}
