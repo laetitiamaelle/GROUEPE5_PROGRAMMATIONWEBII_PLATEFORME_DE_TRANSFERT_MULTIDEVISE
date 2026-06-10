@@ -20,27 +20,32 @@ export function ProfileSettingsPage({ onSave }: ProfileSettingsPageProps) {
   const [tab, setTab] = useState("general");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("+237 600 000 000");
-  const [birth, setBirth] = useState("");
+  const [currency, setCurrency] = useState("EUR");
   const [twoFactor, setTwoFactor] = useState(true);
   const [loginAlerts, setLoginAlerts] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
     if (user) {
       setFullName(user.name);
       setEmail(user.email);
+      setCurrency(user.currency);
     }
   }, [user]);
 
   async function handleSave() {
     setSaving(true);
+    setSuccessMsg(null);
+    setErrorMsg(null);
     try {
-      await apiPatch("/api/v1/profile", { full_name: fullName, email });
+      await apiPatch("/api/v1/profile", { full_name: fullName, email, currency });
       await refresh();
+      setSuccessMsg("Profil mis à jour avec succès !");
       onSave();
-    } catch {
-      // ignore
+    } catch (ex) {
+      setErrorMsg(ex instanceof Error ? ex.message : "Erreur lors de la sauvegarde");
     } finally {
       setSaving(false);
     }
@@ -50,31 +55,75 @@ export function ProfileSettingsPage({ onSave }: ProfileSettingsPageProps) {
     ? new Date(user.created_at).toLocaleDateString("fr-FR", { month: "long", year: "numeric" })
     : "—";
 
-  const currencyLabel: Record<string, string> = {
-    EUR: "EUR — Euro",
-    USD: "USD — Dollar",
-    XAF: "XAF — Franc CFA",
-  };
+  const currencyOptions = [
+    { value: "EUR", label: "EUR — Euro" },
+    { value: "USD", label: "USD — Dollar américain" },
+    { value: "XAF", label: "XAF — Franc CFA" },
+  ];
+
+  const currencyLabel =
+    currencyOptions.find((c) => c.value === (user?.currency ?? "EUR"))?.label ?? user?.currency ?? "—";
 
   const general = (
     <div>
       <h2 className={styles.sectionTitle}>Informations personnelles</h2>
-      <p className={styles.sectionDesc}>Ces informations sont utilisées pour votre profil et les communications liées au compte.</p>
+      <p className={styles.sectionDesc}>
+        Ces informations sont utilisées pour votre profil et les communications liées au compte.
+      </p>
       <div className={styles.formGrid}>
         <Input label="Nom complet" value={fullName} onChange={(e) => setFullName(e.target.value)} />
         <Input label="Adresse email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Input label="Numéro de téléphone" value={phone} onChange={(e) => setPhone(e.target.value)}
-          iconLeft={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M8 3h3l1 4-2 1a12 12 0 006 6l1-2 4 1v3a2 2 0 01-2 2h-1C9.5 18 4 12.5 4 5V4a2 2 0 012-2z" stroke="currentColor" strokeWidth="2" /></svg>}
-        />
-        <Input label="Date de naissance" type="date" value={birth} onChange={(e) => setBirth(e.target.value)} />
+        <div>
+          <label style={{ display: "block", marginBottom: 6, fontSize: 14, fontWeight: 500, color: "white" }}>
+            Devise principale
+          </label>
+          <select
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              borderRadius: 12,
+              border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--cash-bg, #0f172a)",
+              color: "white",
+              fontSize: 14,
+              outline: "none",
+              cursor: "pointer",
+            }}
+          >
+            {currencyOptions.map((opt) => (
+              <option key={opt.value} value={opt.value} style={{ background: "#1e293b" }}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
+
       <div className={styles.alert}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden style={{ flexShrink: 0 }}>
           <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
           <path d="M12 10v5M12 8h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
-        <span><strong>Information importante :</strong> les changements d&apos;identité peuvent nécessiter une reverification KYC.</span>
+        <span>
+          <strong>Information importante :</strong> les changements d&apos;identité peuvent nécessiter une re-vérification KYC.
+        </span>
       </div>
+
+      {successMsg && (
+        <p style={{ color: "#4ade80", fontSize: 14, marginTop: 12, display: "flex", alignItems: "center", gap: 6 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <circle cx="12" cy="12" r="9" stroke="#4ade80" strokeWidth="2" />
+            <path d="M8 12l3 3 5-5" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {successMsg}
+        </p>
+      )}
+      {errorMsg && (
+        <p style={{ color: "#f87171", fontSize: 14, marginTop: 12 }}>⚠ {errorMsg}</p>
+      )}
+
       <div className={styles.actions}>
         <Button variant="primary" onClick={handleSave} disabled={saving || loading}>
           {saving ? "Enregistrement..." : "Enregistrer les modifications"}
@@ -90,7 +139,7 @@ export function ProfileSettingsPage({ onSave }: ProfileSettingsPageProps) {
       <div className={styles.formGrid}>
         <Input label="Langue de l'interface" value="Français (FR)" readOnly />
         <Input label="Fuseau horaire" value="Europe/Paris" readOnly />
-        <Input label="Devise principale" value={currencyLabel[user?.currency ?? "EUR"] ?? user?.currency ?? "—"} readOnly />
+        <Input label="Devise principale" value={currencyLabel} readOnly />
       </div>
     </div>
   );
@@ -133,7 +182,7 @@ export function ProfileSettingsPage({ onSave }: ProfileSettingsPageProps) {
               </div>
               <div>
                 <div className={styles.meta}>DEVISE DU COMPTE</div>
-                <div className={styles.metaValue}>{currencyLabel[user?.currency ?? "EUR"] ?? user?.currency ?? "—"}</div>
+                <div className={styles.metaValue}>{currencyLabel}</div>
               </div>
             </div>
           </div>

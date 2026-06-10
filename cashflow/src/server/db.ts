@@ -64,7 +64,7 @@ export function loadStore(): DbStore {
   const raw = fs.readFileSync(DB_PATH, "utf8");
   const store = JSON.parse(raw) as DbStore;
   // Migration : ajouter role si absent sur anciens comptes
-  store.users = store.users.map((u) => ({ role: "user" as const, ...u }));
+  store.users = store.users.map((u) => ({ ...u, role: (u.role ?? "user") as "user" | "admin" }));
   cache = store;
   return cache;
 }
